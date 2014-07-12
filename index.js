@@ -1,14 +1,13 @@
 // the middleware function
 module.exports = function() {
     return function(req, res, next) {
-    	console.log("HOST : " + req.host);
-
 		var array = /(.*)\.(?:(?:.*)\.(?:.*)|localhost)/i.exec(req.host);
-		console.log(array);
-		if(array != null)
+		if(array != null && array.length > 0)
 		{
-			var subdomain = array[1];
-			req.url = '/' + subdomain + '/' + req.url; 
+			if(array[1] != 'www'){
+				var subdomains = array[1].split('.').join('/');
+				req.url = '/' + subdomains + req.url;
+			}
 		}
     	next();
     }
