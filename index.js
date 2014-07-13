@@ -22,7 +22,7 @@ module.exports = function(options) {
  		//Apply the regex and get the subdomains
 		var array = regex.exec(req.host);
 		//If we found something and we captured something from the regex
-		if(array != null && array.length > 2)
+		if(array != null && array.length > 1)
 		{
 			//If we detect the subdomain as www we don't do anything
 			if(array[1] != 'www'){
