@@ -1,2 +1,4 @@
-#Subdomain-middleware
-A simple middleware to handle easily subdomains in Express
+Subdomain-middleware
+====================
+
+A simple middleware that handles subdomains for expressJS
