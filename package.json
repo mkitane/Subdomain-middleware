@@ -1,0 +1,19 @@
+{
+	"name": "subdomain-middleware",
+	"version": "0.1.1",
+	"author": "Mehdi Kitane",
+	"description":"A subdomain handler for ExpressJS",
+	"homepage": "http://github.com/mkitane/Subdomain-middleware",
+	"engines": {
+		"node" : ">= 0.10.x"
+		},
+	"main": "./index",
+	"keywords":
+		["middleware","node","subdomain","express","domain handling", "simple"],
+	 "license" : "MIT",
+	 "repository" :
+  		{ 
+  			"type" : "git",
+  			"url" : "https://github.com/mkitane/Subdomain-middleware.git"
+ 		 }
+}
