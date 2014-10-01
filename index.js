@@ -8,6 +8,7 @@ module.exports = function(options) {
 	//Check if the baseURL option is activated
     var options = options || {};
 	options.baseURL = options.baseURL || false;
+	options.blackList = options.blackList || []; 
 
 	//Create the corresponding Regex according to options
 	if(options.baseURL)
@@ -20,14 +21,16 @@ module.exports = function(options) {
 
     return function(req, res, next) {
  		//Apply the regex and get the subdomains
-		var array = regex.exec(req.host);
+		var array = regex.exec(req.hostname);
 		//If we found something and we captured something from the regex
 		if(array != null && array.length > 1)
 		{
 			//If we detect the subdomain as www we don't do anything
 			if(array[1] != 'www'){
-				var subdomains = array[1].split('.').join('/');
-				req.url = '/' + subdomains + req.url;
+				if(options.blackList.indexOf(array[1]) > -1){
+					var subdomains = array[1].split('.').join('/');
+					req.url = '/' + subdomains + req.url;
+				}
 			}
 		}
 
